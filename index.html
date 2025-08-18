@@ -24,67 +24,6 @@
     </div>
   </div>
 
-  <script>
-    // ===== Key Sequence Logic =====
-    (function () {
-      const redirect = () => {
-        // 부드러운 효과를 주고 이동
-        document.getElementById('denied-text').textContent = 'ACCESS GRANTED';
-        setTimeout(() => { window.location.href = 'lobby.html'; }, 220);
-      };
 
-      // 1) "access" 문자열 감지 (대소문자 무시, 최근 16자 버퍼)
-      const targetWord = 'access';
-      let typedBuffer = '';
-
-      // 2) Space → Backspace → Enter 시퀀스 감지
-      const combo = ['Space', 'Backspace', 'Enter'];
-      let comboIndex = 0;
-      let comboTimer = null;
-      const comboTimeoutMs = 30000; // 3초 내에 연속 입력 필요
-
-      const resetCombo = () => {
-        comboIndex = 0;
-        if (comboTimer) {
-          clearTimeout(comboTimer);
-          comboTimer = null;
-        }
-      };
-
-      window.addEventListener('keydown', (e) => {
-        // Backspace가 브라우저 뒤로가기를 막도록
-        if (e.key === 'Backspace') e.preventDefault();
-
-        // ===== 문자열 버퍼 업데이트 =====
-        const isChar = e.key.length === 1; // 단일 문자
-        if (isChar) {
-          typedBuffer += e.key.toLowerCase();
-          if (typedBuffer.length > 16) typedBuffer = typedBuffer.slice(-16);
-          if (typedBuffer.includes(targetWord)) {
-            redirect();
-            return;
-          }
-        }
-
-        // ===== 콤보 시퀀스 체크 (Space → Backspace → Enter) =====
-        if (e.code === combo[comboIndex] || e.key === combo[comboIndex]) {
-          // 첫 입력이면 타이머 시작
-          if (comboIndex === 0 && !comboTimer) {
-            comboTimer = setTimeout(resetCombo, comboTimeoutMs);
-          }
-          comboIndex++;
-          if (comboIndex >= combo.length) {
-            resetCombo();
-            redirect();
-            return;
-          }
-        } else {
-          // 다른 키가 들어오면 콤보 진행 중이던 것도 리셋
-          resetCombo();
-          // 단, 다음 키가 Space로 시작하면 즉시 시작 가능하도록 처리는 위에서 자동
-        }
-      }, { capture: true }); // capture로 전역 우선 처리
-    })();
-  </script>
 </body>
 </html>
