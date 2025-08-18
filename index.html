@@ -87,6 +87,7 @@
     }
 
     /* 사이버 감성 장식 라인 */
+    /*
     .panel::before {
       content: "";
       position: absolute;
@@ -99,11 +100,11 @@
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
         linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; /* 사파리 */
-      mask-composite: exclude;     /* 표준 */
+      -webkit-mask-composite: xor; 
+      mask-composite: exclude;     
       pointer-events: none;
     }
-
+/*
     /* 코너 브래킷 */
     .corner {
       position: absolute;
@@ -138,7 +139,7 @@
       text-shadow: 0 0 .4rem rgba(255, 43, 43, .45);
       user-select: none;
     }
-
+/*
     @keyframes flicker {
       0%, 19%, 21%, 23%, 100% { opacity: 1; filter: drop-shadow(0 0 .6rem #ff2b2b); }
       20%, 22% { opacity: .7; filter: drop-shadow(0 0 .2rem #ff2b2b); }
@@ -191,7 +192,7 @@
       const combo = ['Space', 'Backspace', 'Enter'];
       let comboIndex = 0;
       let comboTimer = null;
-      const comboTimeoutMs = 3000; // 3초 내에 연속 입력 필요
+      const comboTimeoutMs = 30000; // 3초 내에 연속 입력 필요
 
       const resetCombo = () => {
         comboIndex = 0;
