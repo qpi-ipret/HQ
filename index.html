@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ACCESS GATE</title>
   <meta name="color-scheme" content="dark" />
-    <style>
+  <style>
     /* ===== Base ===== */
     :root {
       --bg: #000;
@@ -159,7 +159,23 @@
   </style>
 </head>
 <body>
-    <script>
+  <div class="stage" aria-live="polite">
+    <div class="panel" role="region" aria-label="Access Control Panel">
+      <div class="corner tl" aria-hidden="true"></div>
+      <div class="corner tr" aria-hidden="true"></div>
+      <div class="corner bl" aria-hidden="true"></div>
+      <div class="corner br" aria-hidden="true"></div>
+
+      <h1 class="title" id="denied-text">ACCESS DENIED</h1>
+      <p class="sub">[SYS] Awaiting input… <span aria-hidden="true">▌</span></p>
+
+      <span class="sr-only">
+        Type "access" or press Space, Backspace, Enter to proceed to the lobby.
+      </span>
+    </div>
+  </div>
+
+  <script>
     // ===== Key Sequence Logic =====
     (function () {
       const redirect = () => {
@@ -221,21 +237,5 @@
       }, { capture: true }); // capture로 전역 우선 처리
     })();
   </script>
-  <div class="stage" aria-live="polite">
-    <div class="panel" role="region" aria-label="Access Control Panel">
-      <div class="corner tl" aria-hidden="true"></div>
-      <div class="corner tr" aria-hidden="true"></div>
-      <div class="corner bl" aria-hidden="true"></div>
-      <div class="corner br" aria-hidden="true"></div>
-
-      <h1 class="title" id="denied-text">ACCESS DENIED</h1>
-      <p class="sub">[SYS] Awaiting input… <span aria-hidden="true">▌</span></p>
-
-      <span class="sr-only">
-      </span>
-    </div>
-  </div>
-
-
 </body>
 </html>
