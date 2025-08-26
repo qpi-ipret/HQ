@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitoring Dashboard</title>
+    <link rel="stylesheet" href="nc.css">
+</head>
+<body>
+    <header>
+        <h1>Network Capture & Analysis</h1>
+    </header>
+
+    <div id="container">
+        <!-- URL 분석 섹션 -->
+        <div id="input-section">
+            <label for="urlInput">Enter URL to analyze:</label>
+            <input type="text" id="urlInput" placeholder="e.g., qpi.kro.kr" />
+            <button id="startBtn">Start Analysis</button>
+        </div>
+
+        <!-- 상태 메시지 -->
+        <div id="status-section">
+            <h2>Status</h2>
+            <div id="statusMessage">Please enter a URL to begin analysis.</div>
+        </div>
+
+        <!-- 네트워크 결과 -->
+        <div id="results-section">
+            <h2>Network Results</h2>
+            <div id="results"></div>
+        </div>
+
+        <!-- 패킷 캡처 -->
+        <div id="packet-capture">
+            <h2>Packet Capture</h2>
+            <button id="startCaptureBtn">Start Packet Capture</button>
+            <div id="captureResults"></div>
+        </div>
+
+        <!-- 보안 검사 -->
+        <div id="security-section">
+            <h2>Security Check</h2>
+            <button id="checkSecurityBtn">Run Security Scan</button>
+            <div id="securityResults"></div>
+        </div>
+    </div>
+
+    <script src="nc.js"></script>
+</body>
+</html>
 
