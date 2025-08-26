@@ -1,6 +1,19 @@
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/satellite.js@5.0.2/dist/satellite.min.js"></script>
-<script>
+document.addEventListener("keydown", function(event) {
+  // H와 Q 키가 동시에 눌렸는지 확인
+  if (event.key.toUpperCase() === "Q" && event.ctrlKey && event.altKey) {
+    // Ctrl+Alt+Q -> index.html 이동
+    window.location.href = "index.html";
+  } else if (event.key.toUpperCase() === "H") {
+    // H 키만 눌렸을 때는 아무 동작 안 하고,
+    // 다음 입력 기다림
+    window.lastKey = "H";
+    setTimeout(() => { window.lastKey = null; }, 500); // 0.5초 내에 Q가 눌려야 동작
+  } else if (event.key.toUpperCase() === "Q" && window.lastKey === "H") {
+    // 직전에 H가 눌리고 Q가 이어지면 index.html 이동
+    window.location.href = "index.html";
+  }
+});
+
 document.addEventListener("keydown", function(event) {
   // H와 Q 키가 동시에 눌렸는지 확인
   if (event.key.toUpperCase() === "Q" && event.ctrlKey && event.altKey) {
