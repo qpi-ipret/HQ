@@ -1,1 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1c1c1c;
+    font-family: Arial, sans-serif;
+    color: white;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    border-bottom: 2px solid #ff2b2b;
+}
+
+h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px;
+}
+
+#input-section {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#urlInput {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #444;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 5px;
+}
+
+#startBtn {
+    padding: 10px 20px;
+    background-color: #ff2b2b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    background-color: #e60000;
+}
+
+#status-section, #results-section, #packet-capture, #security-section {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 200px;
+}
+
+#results {
+    margin-top: 10px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ff2b2b;
+}
+
+#captureResults, #securityResults {
+    margin-top: 10px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    color: #00ff00;
+}
 
